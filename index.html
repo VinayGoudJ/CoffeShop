@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivier Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Rivier Coffee Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="Espresso.jpg" alt="Espresso">
+                    <h3>Espresso</h3>
+                    <p>$3.00</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Espresso" data-price="3.00">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Cappuccino.jpg" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>$4.50</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Cappuccino" data-price="4.50">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Latte.jpg" alt="Latte">
+                    <h3>Latte</h3>
+                    <p>$4.00</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Latte" data-price="4.00">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Mocha.jpg" alt="Mocha">
+                    <h3>Mocha</h3>
+                    <p>$4.75</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Mocha" data-price="4.75">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Green Tea.jpg" alt="Green Tea">
+                    <h3>Green Tea</h3>
+                    <p>$2.50</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Green Tea" data-price="2.50">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Black Tea.jpg" alt="Black Tea">
+                    <h3>Black Tea</h3>
+                    <p>$2.00</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Black Tea" data-price="2.00">Add to Cart</button>
+                </div>
+                <div class="menu-item">
+                    <img src="Chai Tea.jpg" alt="Chai Tea">
+                    <h3>Chai Tea</h3>
+                    <p>$3.00</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-decrease">-</button>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="quantity-increase">+</button>
+                    </div>
+                    <button class="add-to-cart" data-name="Chai Tea" data-price="3.00">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: $0.00</p>
+            <button id="checkout-button">Checkout</button>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Coffee Shop</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>

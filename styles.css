@@ -1,0 +1,239 @@
+/* Body Styles */
+body {
+    font-family: "Arial, sans-serif";
+    background-color: rgb(247, 242, 233);
+    color: rgb(92, 60, 29);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: rgb(139, 69, 19); /* Dark brown color for the header background */
+    color: rgb(255, 255, 255); /* White text color */
+    text-align: center; /* Centered text alignment */
+    padding: 20px 0; /* Padding around the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow below the header */
+    font-size: 1.5em; /* Larger font size for the header text */
+}
+
+/* Navigation Menu Styles */
+nav ul {
+    list-style-type: none; /* Removes bullets from the list */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centers the menu items */
+}
+
+nav ul li {
+    margin: 0 15px; /* Spacing between menu items */
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255); /* White text color for the links */
+    text-decoration: none; /* Removes underline from the links */
+    font-size: 1.2em; /* Slightly larger font size for the links */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Main Content Layout */
+#main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Menu Section Styles */
+#menu {
+    padding: 40px 20px;
+    background-color: rgb(255, 245, 235); /* Light cream background for the menu section */
+    flex: 1;
+}
+
+#menu h2 {
+    text-align: center;
+    font-size: 2em;
+    color: rgb(139, 69, 19); /* Matches the header color */
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px; /* Reduced gap between items */
+}
+
+.menu-item {
+    background-color: rgb(255, 255, 255); /* White background for each menu item */
+    border: 1px solid rgb(220, 220, 220); /* Light border around each item */
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+}
+
+.menu-item img {
+    width: 100%; /* Adjusted to fill the container */
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Reduced margin for consistency */
+}
+
+.menu-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.menu-item p {
+    font-size: 1em;
+    color: rgb(92, 60, 29); /* Dark brown color for prices */
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.add-to-cart {
+    background-color: rgb(139, 69, 19); /* Dark brown button color */
+    color: rgb(255, 255, 255); /* White text color */
+    border: none;
+    padding: 8px 16px; /* Adjusted padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-to-cart:hover {
+    background-color: rgb(105, 50, 14); /* Darker brown on hover */
+}
+
+/* Cart Section Styles */
+#cart {
+    width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+}
+
+#cart-items {
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    margin-bottom: 10px;
+}
+
+.cart-item span {
+    margin-right: 10px;
+}
+
+#cart-total {
+    font-weight: bold;
+}
+
+#checkout-button {
+    margin-top: 10px;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    margin: 10px 0;
+}
+
+.quantity-controls button {
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.quantity-controls input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row on medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* 1 item per row on very small screens */
+    }
+}
+
+
+/* Order Details Section Styles */
+#order-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Full viewport height for better centering */
+    padding: 20px;
+    background-color: rgb(255, 245, 235); /* Light cream background for contrast */
+}
+
+form {
+    width: 50%; /* Set form width to 50% of the screen */
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a 3D effect */
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: rgb(139, 69, 19); /* Dark brown color for legends */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button[type="submit"] {
+    background-color: rgb(139, 69, 19); /* Dark brown button color */
+    color: rgb(255, 255, 255); /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%; /* Full width button */
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(105, 50, 14); /* Darker brown on hover */
+}

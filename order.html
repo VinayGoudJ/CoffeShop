@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add styles for the thank you popup */
+        #thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+        #thank-you-popup button {
+            background-color: #1393d0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        #thank-you-popup button:hover {
+            background-color: #0c6ba5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Navigation Menu -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#checkout-summary">Checkout Summary</a></li>
+                <li><a href="#customer-details">Customer Details</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Order Details</h1>
+    </header>
+    
+    <!-- Checkout Summary Section -->
+    <section id="checkout-summary">
+        <h2>Checkout Summary</h2>
+        <div id="order-items"></div>
+        <p id="order-total"></p>
+    </section>
+    
+    <!-- Customer Details Form -->
+    <section id="customer-details">
+        <h3>Customer Details</h3>
+        <form id="customer-form" action="https://formspree.io/f/xgvwylll" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <input type="hidden" id="order-items-hidden" name="order_items">
+            <input type="hidden" id="order-total-hidden" name="order_total">
+            
+            <button type="submit" id="place-order-button">Place Order</button>
+        </form>
+    </section>
+    
+    <!-- Thank You Popup -->
+    <div id="thank-you-popup">
+        <p>Thank you for shopping with us!</p>
+        <p>You will receive an email confirmation soon.</p>
+        <button id="close-popup">OK</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderItems = document.getElementById('order-items');
+            const orderTotal = document.getElementById('order-total');
+            const orderItemsHidden = document.getElementById('order-items-hidden');
+            const orderTotalHidden = document.getElementById('order-total-hidden');
+            const form = document.getElementById('customer-form');
+            const thankYouPopup = document.getElementById('thank-you-popup');
+            const closePopupButton = document.getElementById('close-popup');
+
+            // Retrieve cart data from localStorage
+            const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const total = localStorage.getItem('cartTotal') || '0.00';
+
+            // Display order items
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'order-item';
+                div.innerHTML = `${item.name} x${item.quantity} - $${item.totalPrice.toFixed(2)}`;
+                orderItems.appendChild(div);
+            });
+
+            // Display total
+            orderTotal.textContent = `Total: $${total}`;
+
+            // Set hidden form fields
+            orderItemsHidden.value = items.map(item => `${item.name} x${item.quantity} - $${item.totalPrice.toFixed(2)}`).join('\n');
+            orderTotalHidden.value = total;
+
+            // Handle form submission
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+
+                // Display thank you popup
+                thankYouPopup.style.display = 'block';
+
+                // Hide the popup and redirect after 5 seconds
+                setTimeout(() => {
+                    window.location.href = 'index.html'; // Redirect to home page
+                }, 5000);
+                
+                // Optionally, submit the form using JavaScript
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form)
+                }).then(response => {
+                    if (response.ok) {
+                        console.log('Form submitted successfully');
+                    } else {
+                        console.error('Form submission failed');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+
+            // Close popup and redirect
+            closePopupButton.addEventListener('click', () => {
+                thankYouPopup.style.display = 'none';
+                window.location.href = 'index.html'; // Redirect to home page
+            });
+        });
+    </script>
+</body>
+</html>
